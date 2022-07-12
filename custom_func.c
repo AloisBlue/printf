@@ -15,7 +15,7 @@ int _putchar(char c)
 
 /**
  * _puts - writes a string
- * @str: pointer to str char
+ * @str: pointer to str character
  *
  * Return: void
  */
@@ -68,7 +68,7 @@ char *_convert(unsigned num, int base)
 		*--ptr = Rep[num%base];
 		num /= base;
 	}
-	while (num != 0)
+	while (num != 0);
 
 	return (ptr);
 }
