@@ -21,11 +21,14 @@ int _putchar(char c)
  */
 void _puts(char *str)
 {
-	while (*str != '\0')
+	int i;
+
+	i = 0;
+	while (i < _strlen(str))
 	{
-		_putchar(str);
+		_putchar(str[i]);
+		i++;
 	}
-	_putchar('\0');
 }
 
 /**
