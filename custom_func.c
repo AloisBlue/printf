@@ -54,21 +54,19 @@ int _strlen(char *str)
  *
  * Return: Returns formated number
  */
-char *_convert(unsigned num, int base)
+char *_convert(unsigned int num, int base)
 {
-	static char Rep[] = "0123456789ABCDEF";
-	static char buffer[50];
+	static const char Rep[] = "0123456789ABCDEF";
+	static const char buffer[50];
 	char *ptr;
 
 	ptr = &buffer[49];
 	*ptr = '\0';
 
-	do
-	{
-		*--ptr = Rep[num%base];
+	do {
+		*--ptr = Rep[num % base];
 		num /= base;
-	}
-	while (num != 0);
+	} while (num != 0);
 
 	return (ptr);
 }
