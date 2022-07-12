@@ -10,7 +10,7 @@
 int _printf(const char *format, ...)
 {
 	va_list arguments;
-	int i = 0;
+	int i = 0, d, j;
 	char *s;
 
 	va_start(arguments, format);
@@ -36,6 +36,27 @@ int _printf(const char *format, ...)
 			{
 				_putchar('%');
 				break;
+			}
+			case 'd':
+			{
+				d = va_arg(arguments, int);
+				if (d < 0)
+				{
+					d = (d * -1);
+					_putchar('-');
+				}
+				_puts(_convert(d, 10));
+				break;
+			}
+			case 'i':
+			{
+				j = va_arg(arguments, int);
+				if (j < 0)
+				{
+					j = (j * -1);
+					_putchar('-');
+				}
+				_puts(_convert(j, 10));
 			}
 			}
 		}
