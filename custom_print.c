@@ -46,7 +46,6 @@ int print_else(const char *format, int i)
 	int count = 0;
 
 	count += _putchar(format[i - 1]);
-	if (format[i] != '\0')
-		count += _putchar(format[i]);
+	count += _putchar(format[i]);
 	return (count);
 }
