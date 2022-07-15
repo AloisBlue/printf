@@ -1,5 +1,5 @@
 #include "main.h"
-#include <stdio.h>
+
 /**
  * print_str = print a string and return it's length
  * @str: Pointer to the string
@@ -17,20 +17,19 @@ int print_str(char *str)
  * print_digit - prints a number
  * @i: number to be printed
  *
- * Return: length of number 
+ * Return: length of number
  */
 int print_digit(int i)
 {
-        int count = 0;
-	
+	int count = 0;
+
 	if (i < 0)
 	{
 		i = (i * -1);
-		putchar('-');
-		count += 1;			
+		_putchar('-');
+		count += 1;
 	}
-
-	printf("%d\n", i);
+	_puts(_convert(i, 10));
 	count += _intlen(i);
 	return (count);
 }

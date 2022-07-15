@@ -18,14 +18,14 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			if (format[i] == 'c' || format[i] == 's')
+			if ((format[i] == 'c') || (format[i] == 's'))
 				count += format[i] == 'c' ? _putchar(va_arg(arguments, int)):
 					print_str(va_arg(arguments, char *));
 			
 			else if (format[i] == '%')
 				count += _putchar('%');
 
-			else if (format[i] == 'd' || format[i] =='i')
+			else if ((format[i] == 'd') || (format[i] == 'i'))
 				count += print_digit(va_arg(arguments, int));
 		}
 		else
