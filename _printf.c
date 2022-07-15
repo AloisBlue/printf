@@ -22,9 +22,9 @@ int _printf(const char *format, ...)
 			i++;
 			if ((format[i] == 'c') || (format[i] == 's'))
 				count += format[i] == 'c' ? _putchar(va_arg(arguments, int)) :
-					print_str(va_arg(arguments, char *));
+					 print_str(va_arg(arguments, char *));
 			else if (format[i] == '%')
-					_putchar('%');
+				count += print_sign(format, i);
 			else if ((format[i] == 'd') || (format[i] == 'i'))
 				count += print_digit(va_arg(arguments, int));
 			else
