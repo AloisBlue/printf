@@ -58,14 +58,17 @@ int print_else(const char *format, int i)
 
 /**
  * print_sign - prints sign if converter is sign
+ * @format:  character to be tested
+ * @i: string position
  *
  * Return: length of characters
  */
-int print_sign(void)
+int print_sign(const char *format, int i)
 {
 	int count = 0;
 
-	count += _putchar('%');
+	if (format[i + 1] == '\0')
+		count += _putchar('%');
 	count += _putchar('%');
 
 	return (count);

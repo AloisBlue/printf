@@ -24,7 +24,7 @@ int _printf(const char *format, ...)
 				count += format[i] == 'c' ? _putchar(va_arg(arguments, int)) :
 					print_str(va_arg(arguments, char *));
 			else if (format[i] == '%')
-				count += print_sign();
+				count += print_sign(format, i);
 
 			else if ((format[i] == 'd') || (format[i] == 'i'))
 				count += print_digit(va_arg(arguments, int));
