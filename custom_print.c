@@ -44,8 +44,11 @@ int print_digit(int i)
 int print_else(const char *format, int i)
 {
 	int count = 0;
-
-	count += _putchar(format[i - 1]);
-	count += _putchar(format[i]);
+	
+	if (format[i])
+	{
+		count += _putchar(format[i - 1]);
+		count += _putchar(format[i]);
+	}
 	return (count);
 }
