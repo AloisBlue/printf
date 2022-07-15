@@ -1,13 +1,16 @@
 #include "main.h"
 
 /**
- * print_str = print a string and return it's length
+ * print_str - print a string and return it's length
  * @str: Pointer to the string
  *
  * Return: length of the string
+ * Description - this function prints a string
  */
 int print_str(char *str)
 {
+	if (str == (char *)0)
+		str = "(null)";
 	_puts(str);
 	return (_strlen(str));
 }
@@ -51,16 +54,4 @@ int print_else(const char *format, int i)
 		count += _putchar(format[i]);
 	}
 	return (count);
-}
-
-/**
- * print_char - print the character
- * @format: the string
- * @c: char
- *
- * Return: length of values available
- */
-int print_char(int c)
-{
-	return (_putchar(c));
 }

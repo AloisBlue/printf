@@ -12,6 +12,5 @@ int _intlen(int i);
 int print_str(char *str);
 int print_digit(int i);
 int print_else(const char *format, int i);
-int print_char(int c);
 
 #endif
