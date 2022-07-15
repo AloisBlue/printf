@@ -21,7 +21,7 @@ int _printf(const char *format, ...)
 		{
 			i++;
 			if ((format[i] == 'c') || (format[i] == 's'))
-				count += format[i] == 'c' ? _putchar(va_arg(arguments, int)) :
+				count += format[i] == 'c' ? print_char(va_arg(arguments, int)) :
 					print_str(va_arg(arguments, char *));
 			else if (format[i] == '%')
 				count += _putchar('%');

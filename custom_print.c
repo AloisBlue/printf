@@ -52,3 +52,17 @@ int print_else(const char *format, int i)
 	}
 	return (count);
 }
+
+/**
+ * print_char - print the character
+ * @format: the string
+ * @c: char
+ *
+ * Return: length of values available
+ */
+int print_char(int c)
+{
+	if (c != '\0')
+		return (_putchar(c));
+	return (0);
+}
