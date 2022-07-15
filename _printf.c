@@ -10,7 +10,7 @@
 int _printf(const char *format, ...)
 {
 	va_list arguments;
-	int i = 0;
+	int i = 0, count = 0;
 	char *s;
 
 	va_start(arguments, format);
@@ -23,29 +23,30 @@ int _printf(const char *format, ...)
 			{
 			case 'c':
 			{
-				_putchar(va_arg(arguments, int));
+				count += _putchar(va_arg(arguments, int));
 				break;
 			}
 			case 's':
 			{
 				s = va_arg(arguments, char *);
 				_puts(s);
+				count += _strlen(s);
 				break;
 			}
 			case '%':
 			{
-				_putchar('%');
+				count += _putchar('%');
 				break;
 			}
 			}
 		}
 		else
 		{
-			_putchar(format[i]);
+			count += _putchar(format[i]);
 		}
 		i++;
 	}
 
 	va_end(arguments);
-	return (i);
+	return (count);
 }
