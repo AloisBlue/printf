@@ -11,7 +11,6 @@ int _printf(const char *format, ...)
 {
 	va_list arguments;
 	int i = 0, d, j, count = 0;
-	char *s;
 
 	va_start(arguments, format);
 	while (format && format[i])
@@ -28,9 +27,7 @@ int _printf(const char *format, ...)
 			}
 			case 's':
 			{
-				s = va_arg(arguments, char *);
-				_puts(s);
-				count += _strlen(s);
+				count += print_str(va_arg(arguments, char *));
 				break;
 			}
 			case '%':
