@@ -67,7 +67,7 @@ int print_sign(const char *format, int i)
 {
 	int count = 0;
 
-	if (format[i + 1] != '\n')
+	if (format[i + 1] == '\0')
 		count += _putchar('%');
 	count += _putchar('%');
 
