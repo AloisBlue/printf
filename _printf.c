@@ -27,6 +27,10 @@ int _printf(const char *format, ...)
 
 			else if ((format[i] == 'd') || (format[i] == 'i'))
 				count += print_digit(va_arg(arguments, int));
+			else {
+				_putchar(format[i - 1]);
+				_putchar(format[i]);
+			}
 		}
 		else
 		{
