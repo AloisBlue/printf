@@ -10,7 +10,7 @@
 int _printf(const char *format, ...)
 {
 	va_list arguments;
-	int i = 0, d, j;
+	int i = 0, d, j, count = 0;
 	char *s;
 
 	va_start(arguments, format);
@@ -23,18 +23,19 @@ int _printf(const char *format, ...)
 			{
 			case 'c':
 			{
-				_putchar(va_arg(arguments, int));
+				count += _putchar(va_arg(arguments, int));
 				break;
 			}
 			case 's':
 			{
 				s = va_arg(arguments, char *);
 				_puts(s);
+				count += _strlen(s);
 				break;
 			}
 			case '%':
 			{
-				_putchar('%');
+				count += _putchar('%');
 				break;
 			}
 			case 'd':
@@ -44,8 +45,10 @@ int _printf(const char *format, ...)
 				{
 					d = (d * -1);
 					_putchar('-');
+					count += 1;
 				}
 				_puts(_convert(d, 10));
+				count += _intlen(d);
 				break;
 			}
 			case 'i':
@@ -55,18 +58,20 @@ int _printf(const char *format, ...)
 				{
 					j = (j * -1);
 					_putchar('-');
+					count += 1;
 				}
 				_puts(_convert(j, 10));
+				count += _intlen(i);
 			}
 			}
 		}
 		else
 		{
-			_putchar(format[i]);
+			count += _putchar(format[i]);
 		}
 		i++;
 	}
 
 	va_end(arguments);
-	return (i);
+	return (count);
 }

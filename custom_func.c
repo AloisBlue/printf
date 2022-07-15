@@ -70,3 +70,21 @@ char *_convert(unsigned int num, int base)
 
 	return (ptr);
 }
+
+/**
+ * _intlen - count the length of a digit
+ * @i: number to check for length
+ *
+ * Return: Returns length of the digit
+ */
+int _intlen(int i)
+{
+	int count = 0;
+
+	do {
+		count++;
+		i /= 10;
+	} while (i != 0);
+
+	return (count);
+}
