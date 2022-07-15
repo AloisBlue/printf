@@ -10,5 +10,6 @@ void _puts(char *str);
 char *_convert(unsigned int num, int base);
 int _intlen(int i);
 int print_str(char *str);
+int print_digit(int i);
 
 #endif

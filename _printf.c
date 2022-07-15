@@ -10,7 +10,7 @@
 int _printf(const char *format, ...)
 {
 	va_list arguments;
-	int i = 0, d, j, count = 0;
+	int i = 0, count = 0;
 
 	va_start(arguments, format);
 	while (format && format[i])
@@ -18,49 +18,15 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			switch (format[i])
-			{
-			case 'c':
-			{
-				count += _putchar(va_arg(arguments, int));
-				break;
-			}
-			case 's':
-			{
-				count += print_str(va_arg(arguments, char *));
-				break;
-			}
-			case '%':
-			{
+			if (format[i] == 'c' || format[i] == 's')
+				count += format[i] == 'c' ? _putchar(va_arg(arguments, int)):
+					print_str(va_arg(arguments, char *));
+			
+			else if (format[i] == '%')
 				count += _putchar('%');
-				break;
-			}
-			case 'd':
-			{
-				d = va_arg(arguments, int);
-				if (d < 0)
-				{
-					d = (d * -1);
-					_putchar('-');
-					count += 1;
-				}
-				_puts(_convert(d, 10));
-				count += _intlen(d);
-				break;
-			}
-			case 'i':
-			{
-				j = va_arg(arguments, int);
-				if (j < 0)
-				{
-					j = (j * -1);
-					_putchar('-');
-					count += 1;
-				}
-				_puts(_convert(j, 10));
-				count += _intlen(i);
-			}
-			}
+
+			else if (format[i] == 'd' || format[i] =='i')
+				count += print_digit(va_arg(arguments, int));
 		}
 		else
 		{
