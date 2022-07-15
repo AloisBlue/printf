@@ -33,3 +33,19 @@ int print_digit(int i)
 	count += _intlen(i);
 	return (count);
 }
+
+/**
+ * print_else - print values if no format detected
+ * @format: the string
+ * @i: string position
+ *
+ * Return: length of values available
+ */
+int print_else(const char *format, int i)
+{
+	int count = 0;
+	count += _putchar(format[i - 1]);
+	if (format[i] != '\0')
+		count += _putchar(format[i]);
+	return (count);
+}
