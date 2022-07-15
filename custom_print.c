@@ -62,7 +62,5 @@ int print_else(const char *format, int i)
  */
 int print_char(int c)
 {
-	if (c != '\0')
-		return (_putchar(c));
-	return (0);
+	return (_putchar(c));
 }
